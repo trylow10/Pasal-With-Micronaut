@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.trilochan.mn
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, gradle, http-client, http-session, jackson-databind, java, java-application, junit, logback, lombok, micronaut-build, microstream, microstream-rest, netty-server, openapi, readme, shade, yaml]
