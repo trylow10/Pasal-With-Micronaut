@@ -19,14 +19,20 @@ dependencies {
     annotationProcessor("io.micronaut:micronaut-http-validation")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-jackson-databind")
+//    implementation("jakarta.annotation:jakarta.annotation-api")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
-    //  hibernate data handling
+//    implementation group: 'io.micronaut.data', name: 'micronaut-data-model', version: '3.8.0'
     implementation("io.micronaut.sql:micronaut-hibernate-jpa")
+
+    //  hibernate data handling
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
-    annotationProcessor('io.micronaut.data:micronaut-data-processor')
     runtimeOnly("com.h2database:h2")
+    annotationProcessor('io.micronaut.data:micronaut-data-processor')
+
+//    implementation('jakarta.persistence:jakarta.persistence-api:3.1.0')
+
     // For postgres
     runtimeOnly("org.postgresql:postgresql")
 

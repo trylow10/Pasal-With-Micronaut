@@ -17,8 +17,6 @@ import java.util.UUID;
 public class Products implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
     private UUID id;
 
     @NotNull
@@ -26,7 +24,6 @@ public class Products implements Serializable {
     private String name;
 
     @NotNull
-
     @Column(name = "product_description")
     private String description;
 }
