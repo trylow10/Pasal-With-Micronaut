@@ -1,4 +1,4 @@
-package com.trilochan.mn;
+package com.trilochan.pasal;
 
 import io.micronaut.runtime.EmbeddedApplication;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;

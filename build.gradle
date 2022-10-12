@@ -7,25 +7,29 @@ version = "0.1"
 group = "com.trilochan.mn"
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-    annotationProcessor("org.projectlombok:lombok")
+    // For Lombok
+    implementation 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor('org.projectlombok:lombok:1.18.24')
+
     annotationProcessor("io.micronaut:micronaut-http-validation")
-    annotationProcessor("io.micronaut.microstream:micronaut-microstream-annotations")
-    annotationProcessor("io.micronaut.openapi:micronaut-openapi")
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-jackson-databind")
-    implementation("io.micronaut:micronaut-session")
-    implementation("io.micronaut.microstream:micronaut-microstream")
-    implementation("io.micronaut.microstream:micronaut-microstream-annotations")
-    implementation("io.swagger.core.v3:swagger-annotations")
-    implementation("jakarta.annotation:jakarta.annotation-api")
-    compileOnly("org.projectlombok:lombok")
     runtimeOnly("ch.qos.logback:logback-classic")
-    developmentOnly("io.micronaut.microstream:micronaut-microstream-rest")
     implementation("io.micronaut:micronaut-validation")
+    //  hibernate data handling
+    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    annotationProcessor('io.micronaut.data:micronaut-data-processor')
+    runtimeOnly("com.h2database:h2")
+    // For postgres
+    runtimeOnly("org.postgresql:postgresql")
+
 
 }
 
