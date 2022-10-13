@@ -37,9 +37,7 @@ public class ProductServiceimpl implements ProductService {
 
     @Override
     public void deleteById(UUID id) {
-        return productRepository.deleteById(id);
-                .map(ProductMapper::toDto)
-                .orElseThrow(RuntimeException::new);
+      productRepository.deleteById(id);
 
     }
 

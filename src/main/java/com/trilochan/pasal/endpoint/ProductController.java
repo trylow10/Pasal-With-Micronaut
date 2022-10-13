@@ -6,6 +6,7 @@ import io.micronaut.http.annotation.*;
 import jakarta.inject.Inject;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller("/test")
 public class ProductController {
@@ -19,23 +20,26 @@ public class ProductController {
         return data;
     }
 
-    @Post("/one")
-    public ProductDto findById(@Body ProductDto body) {
-        var data = productService.findById(body.id());
-        return data;
-    }
+//    @Post("/one")
+//    public ProductDto findById(@Body ProductDto body) {
+//        var data = productService.findById(body.id());
+//        return data;
+//    }
+@Get(value="/{id}")
+public ProductDto findById(@PathVariable UUID id) {
+    var data = productService.findById(id);
+    return data;
 
-
+}
     @Get("/all")
     public List<ProductDto> getAllProduct() {
         return productService.getAllProduct();
     }
+    @Delete(value = "/{id}")
+    public void deleteById(@PathVariable UUID id) {
+        productService.deleteById(id);
+    }
 
 
-//@Delete("delete")
-//    public void delete(UUID id) {
-//        productService.deleteById(productService.deleteById(ProductDto));
-//    }
-//}
 
 }
