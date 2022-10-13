@@ -12,4 +12,6 @@ public interface ProductService {
     ProductDto findById(UUID id);
     void deleteById(UUID id);
 
+    ProductDto update(ProductDto productDto);
+
 }

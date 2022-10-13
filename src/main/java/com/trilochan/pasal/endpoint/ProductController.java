@@ -40,6 +40,10 @@ public ProductDto findById(@PathVariable UUID id) {
         productService.deleteById(id);
     }
 
-
+    @Put("/update")
+    public ProductDto updateProduct(@Body ProductDto body) {
+        var data = productService.update(body);
+        return data;
+    }
 
 }

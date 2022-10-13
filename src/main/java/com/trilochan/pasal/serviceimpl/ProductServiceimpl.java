@@ -12,7 +12,6 @@ import java.util.UUID;
 
 @Singleton
 public class ProductServiceimpl implements ProductService {
-
     @Inject
     ProductRepository productRepository;
 
@@ -28,20 +27,26 @@ public class ProductServiceimpl implements ProductService {
         return ProductMapper.listOfProductDto(productRepository.findAll());
     }
 
-@Override
-    public ProductDto findById(UUID id){
-    return productRepository.findById(id)
-            .map(ProductMapper::toDto)
-            .orElseThrow(RuntimeException::new);
+    @Override
+    public ProductDto findById(UUID id) {
+        return productRepository.findById(id)
+                .map(ProductMapper::toDto)
+                .orElseThrow(RuntimeException::new);
     }
 
     @Override
     public void deleteById(UUID id) {
-      productRepository.deleteById(id);
+        productRepository.deleteById(id);
 
     }
 
-
-
+    @Override
+    public ProductDto update(ProductDto productDto) {
+        var data = ProductMapper.toEntity(productDto);
+        var data2 = ProductMapper.toDto(productRepository.update(data));
+    return data2;
     }
+
+
+}
 
