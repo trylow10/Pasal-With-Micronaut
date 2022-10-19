@@ -14,7 +14,7 @@ import java.util.UUID;
 @ToString
 @Entity
 @Table(name="Products")
-public class Products implements Serializable {
+public class Product implements Serializable {
 
     @Id
     private UUID id;

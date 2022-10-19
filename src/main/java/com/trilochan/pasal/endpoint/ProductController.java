@@ -42,8 +42,9 @@ public ProductDto findById(@PathVariable UUID id) {
 
     @Put("/update")
     public ProductDto updateProduct(@Body ProductDto body) {
-        var data = productService.update(body);
-        return data;
+        var data = productService.findById(body.id());
+        return productService.updateProduct(body.id(),body);
+
     }
 
 }

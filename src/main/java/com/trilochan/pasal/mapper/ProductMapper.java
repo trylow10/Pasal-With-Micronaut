@@ -1,7 +1,7 @@
 package com.trilochan.pasal.mapper;
 
 import com.trilochan.pasal.dto.ProductDto;
-import com.trilochan.pasal.entity.Products;
+import com.trilochan.pasal.entity.Product;
 import lombok.Builder;
 
 import java.util.ArrayList;
@@ -15,8 +15,8 @@ public class ProductMapper {
     public ProductMapper() {
     }
 
-    public static Products toEntity(ProductDto productDto) {
-        return Products.builder()
+    public static Product toEntity(ProductDto productDto) {
+        return Product.builder()
                 .id(Optional.ofNullable(productDto.id()).orElse(UUID.randomUUID()))
                 .name(productDto.name())
                 .description(productDto.description())
@@ -24,7 +24,7 @@ public class ProductMapper {
 
     }
 
-    public static ProductDto toDto(Products products) {
+    public static ProductDto toDto(Product products) {
         return ProductDto.builder()
                 .id(products.getId())
                 .name(products.getName())
@@ -32,7 +32,7 @@ public class ProductMapper {
                 .build();
     }
 
-    public static List<ProductDto> listOfProductDto(Iterable<Products> products) {
+    public static List<ProductDto> listOfProductDto(Iterable<Product> products) {
         List<ProductDto> newList = new ArrayList<>();
         products.forEach(entity -> newList.add(toDto(entity)));
         return newList;

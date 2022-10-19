@@ -41,12 +41,17 @@ public class ProductServiceimpl implements ProductService {
     }
 
     @Override
-    public ProductDto update(ProductDto productDto) {
-        var data = ProductMapper.toEntity(productDto);
-        var data2 = ProductMapper.toDto(productRepository.update(data));
-    return data2;
+    public ProductDto updateProduct(UUID id, ProductDto existingProduct) {
+        ProductDto newBuilder = existingProduct.toBuilder()
+                .name(existingProduct.name())
+                .description(existingProduct.description())
+                .build();
+        var updatingProduct = ProductMapper.toEntity(existingProduct);
+        var updatedProduct = productRepository.update(updatingProduct);
+        return ProductMapper.toDto(updatedProduct);
+
     }
-
-
 }
+
+
 
